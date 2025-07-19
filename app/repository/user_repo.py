@@ -2,7 +2,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from app.core.config import MONGO_URI, DB_NAME
 from app.models.user_model import User
 
-client = AsyncIOMotorClient(MONGO_URI)
+client = AsyncIOMotorClient(MONGO_URI, tls=True, tlsAllowInvalidCertificates=True)
 db = client[DB_NAME]
 collection = db["users"]
 
